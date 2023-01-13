@@ -15,7 +15,7 @@ from src.models.resnet import ResNet
 
 def build_model(args, n_classes):
     if not args.pretrained_on_imagenet or args.last_ckpt or \
-            args.pretrained_scenenet != '':
+            args.pretrained_scenenet != '' or args.ckpt_path != '':
         pretrained_on_imagenet = False
     else:
         pretrained_on_imagenet = True
@@ -94,7 +94,7 @@ def build_model(args, n_classes):
 
     print('Device:', device)
     model.to(device)
-    print(model)
+    # print(model)
 
     if args.he_init:
         module_list = []

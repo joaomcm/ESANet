@@ -9,10 +9,10 @@ import pickle
 from torch.utils.data import DataLoader
 
 from src import preprocessing
-from src.datasets import Cityscapes
+# from src.datasets import Cityscapes
 from src.datasets import NYUv2
-from src.datasets import SceneNetRGBD
-from src.datasets import SUNRGBD
+# from src.datasets import SceneNetRGBD
+# from src.datasets import SUNRGBD
 
 
 def prepare_data(args, ckpt_dir=None, with_input_orig=False, split=None):
@@ -25,20 +25,20 @@ def prepare_data(args, ckpt_dir=None, with_input_orig=False, split=None):
         Dataset = NYUv2
         dataset_kwargs = {'n_classes': 40}
         valid_set = 'test'
-    elif args.dataset == 'cityscapes':
-        Dataset = Cityscapes
-        dataset_kwargs = {
-            'n_classes': 19,
-            'disparity_instead_of_depth': True
-        }
-        valid_set = 'valid'
-    elif args.dataset == 'cityscapes-with-depth':
-        Dataset = Cityscapes
-        dataset_kwargs = {
-            'n_classes': 19,
-            'disparity_instead_of_depth': False
-        }
-        valid_set = 'valid'
+    # elif args.dataset == 'cityscapes':
+    #     Dataset = Cityscapes
+    #     dataset_kwargs = {
+    #         'n_classes': 19,
+    #         'disparity_instead_of_depth': True
+    #     }
+    #     valid_set = 'valid'
+    # elif args.dataset == 'cityscapes-with-depth':
+    #     Dataset = Cityscapes
+    #     dataset_kwargs = {
+    #         'n_classes': 19,
+    #         'disparity_instead_of_depth': False
+    #     }
+    #     valid_set = 'valid'
     elif args.dataset == 'scenenetrgbd':
         Dataset = SceneNetRGBD
         dataset_kwargs = {'n_classes': 13}
